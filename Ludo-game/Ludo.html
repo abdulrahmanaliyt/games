@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ludo Game</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #fff8ed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .ludo-div {
+        width: 100%;
+        max-width: 600px;
+        padding: 40px 20px;
+        background-color: bisque;
+        border: 2px solid #f0c99f;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 62px;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 25px;
+      }
+
+      button {
+        padding: 14px 45px;
+        color: white;
+        background-color: #175cff;
+        border: 2px solid white;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 5px 12px rgba(23, 92, 255, 0.2);
+        transition:
+          transform 0.2s,
+          background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #003bd1;
+        transform: translateY(-3px);
+      }
+
+      button:active {
+        transform: scale(0.96);
+      }
+
+      #result {
+        margin-top: 30px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #222;
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      #result.roll-animation {
+        animation: diceRoll 0.65s ease-in-out;
+      }
+
+      @keyframes diceRoll {
+        0% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+
+        25% {
+          transform: scale(0.7) rotate(-15deg);
+          opacity: 0.6;
+        }
+
+        50% {
+          transform: scale(1.2) rotate(15deg);
+          opacity: 1;
+          color: #175cff;
+          box-shadow: 0 0 20px rgba(23, 92, 255, 0.4);
+        }
+
+        75% {
+          transform: scale(0.95) rotate(-5deg);
+        }
+
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+          color: #222;
+          box-shadow: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 36px;
+        }
+
+        h2 {
+          font-size: 25px;
+        }
+
+        #result {
+          font-size: 22px;
+        }
+
+        .ludo-div {
+          padding: 30px 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Ludo Game</h1>
+
+    <div class="ludo-div">
+      <h2>Roll the Dice</h2>
+
+      <button id="roll" onclick="roll()">Roll</button>
+
+      <p id="result">Dice result: 🎲</p>
+    </div>
+
+
+
+    <script>
+      function roll() {
+  let random = Math.floor(Math.random() * 6) + 1;
+
+  const result = document.getElementById("result");
+
+  // Remove the animation so it can run again
+  result.classList.remove("roll-animation");
+
+  // Restart the animation
+  void result.offsetWidth;
+
+  // Update the dice result
+  result.innerText = "Dice result: " + random;
+
+  // Apply the animation
+  result.classList.add("roll-animation");
+}
+
+    </script>
+  </body>
+</html>
