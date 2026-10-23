@@ -7,12 +7,12 @@ let level = 0;
 
 let h2 = document.querySelector("h2");
 
-document.addEventListener("keydown", function () {
+function startGame() {
   if (!started) {
     started = true;
     levelUp();
   }
-});
+}
 
 function btnFlash(btn) {
   if (!btn) return;
@@ -51,7 +51,10 @@ function checkAns(idx) {
 }
 
 function btnPress() {
-  if (!started) return;
+  if (!started) {
+    startGame();
+    return;
+  }
   let btn = this;
   btnFlash(btn);
 

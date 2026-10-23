@@ -33,3 +33,18 @@ body{
 .userflash{
     background-color: green;
 }
+.btn {
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+@media (max-width: 600px) {
+    .btn {
+        width: min(32vw, 150px);
+        height: min(32vw, 150px);
+        margin: 1rem;
+        border-width: 6px;
+    }
+}
